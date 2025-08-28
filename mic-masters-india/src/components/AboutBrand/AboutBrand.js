@@ -6,7 +6,7 @@ const AboutBrand = () => {
   return (
     <div className="section dark-bg">
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom align="center" className="gold-text">
+        <Typography variant="h3" component="h2" gutterBottom align="center" className="white-text">
           About MIC Masters India
         </Typography>
         <Typography variant="h6" component="p" paragraph align="center">

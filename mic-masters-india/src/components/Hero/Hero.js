@@ -3,7 +3,7 @@ import { Typography, Button, Box } from '@mui/material';
 import './Hero.css';
 
 // Import your background image
-import heroBg from './micmasterr.avif'; // rename your file to "micmasterr.avif" and place inside src/assets or src/
+import heroBg from './micmasterr.avif'; // make sure the file is inside src/assets or src/
 
 const Hero = ({ onRegisterClick, isMobile }) => {
   return (
@@ -19,7 +19,6 @@ const Hero = ({ onRegisterClick, isMobile }) => {
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        color: 'white',
         position: 'relative'
       }}
     >
@@ -35,22 +34,29 @@ const Hero = ({ onRegisterClick, isMobile }) => {
 
       {/* Content overlay */}
       <Box sx={{ zIndex: 2, p: 2 }}>
+        {/* Main Title */}
         <Typography
           variant={isMobile ? "h3" : "h1"}
           component="h1"
           gutterBottom
-          className="gold-text"
+          color="black"
+          sx={{ textShadow: 'black', color: 'white' }}
         >
           Mic Masters India
         </Typography>
+
+        {/* Subtitle */}
         <Typography
           variant={isMobile ? "h6" : "h4"}
           component="h2"
           gutterBottom
-          color='Yellow'
+          color="black"
+          sx={{ textShadow: 'black', color: 'white' }}
         >
           Showcase Your Talent on the National Stage
         </Typography>
+
+        {/* Button */}
         <Button
           variant="contained"
           size="large"
@@ -59,7 +65,14 @@ const Hero = ({ onRegisterClick, isMobile }) => {
         >
           Register Now
         </Button>
-        <Typography variant="h5" component="p" align="center" className="gold-text">
+
+        {/* Entry Fee */}
+        <Typography
+          variant="h5"
+          component="p"
+          align="center"
+          sx={{ mt: 2, color: 'white', textShadow: ' black' }}
+        >
           Entry Fee: ₹200
         </Typography>
       </Box>
