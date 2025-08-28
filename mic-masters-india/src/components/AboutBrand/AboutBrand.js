@@ -21,7 +21,7 @@ const AboutBrand = () => {
             flex="1"
             minWidth="280px"
             sx={{
-              background: 'rgba(0,0,0,0.4)', // ✅ semi-transparent overlay
+              background: 'rgba(255, 255, 255, 1)', // ✅ semi-transparent overlay
               padding: '24px',
               borderRadius: '12px',
               boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
@@ -31,7 +31,7 @@ const AboutBrand = () => {
               variant="h3"
               component="h2"
               gutterBottom
-              sx={{ color: '#FFD700', fontWeight: 'bold' }} // ✅ gold heading
+              sx={{ color: '#000000ff', fontWeight: 'bold' }} // ✅ gold heading
             >
               About MIC Masters India
             </Typography>
@@ -39,7 +39,7 @@ const AboutBrand = () => {
               variant="h6"
               component="p"
               paragraph
-              sx={{ color: 'white', lineHeight: 1.8 }}
+              sx={{ color: 'black', textShadow: 'white', lineHeight: 1.8  }}
             >
               MIC Masters India is organized by a team of music industry professionals 
               with over 15 years of experience in discovering and promoting new talent. 
@@ -49,7 +49,7 @@ const AboutBrand = () => {
             <Typography
               variant="h6"
               component="p"
-              sx={{ color: 'white', lineHeight: 1.8 }}
+              sx={{ color: 'black', textShadow: 'white', lineHeight: 1.8 }}
             >
               Our mission is to provide a fair and professional platform for aspiring singers 
               to be discovered and nurtured.

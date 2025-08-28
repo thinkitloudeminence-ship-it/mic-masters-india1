@@ -1,16 +1,23 @@
-.section {
-  padding: 64px 16px;
+.gallery-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* space between images */
+  flex-wrap: nowrap; /* keep in one row */
+  overflow-x: auto; /* allow scroll on small screens */
+  padding: 10px 0;
 }
 
-.gold-text {
-  color: #FFD700 !important;
+.gallery-card {
+  flex: 2;
+  width: 200px;
+  height: 210px;
+  max-width: 25%; /* since 5 images = ~20% each */
+  border-radius: 10px;
+  overflow: hidden;
 }
-
 .gallery-image {
-  height: 300px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.gallery-image:hover {
-  transform: scale(1.05);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }

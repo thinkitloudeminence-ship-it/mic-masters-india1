@@ -1,0 +1,13 @@
+.custom-cursor {
+  position: fixed;
+  pointer-events: none; /* don’t block clicks */
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 32px;   /* adjust size */
+  height: 32px;  /* adjust size */
+}
+
+/* Hide system cursor */
+body {
+  cursor: none !important;
+}

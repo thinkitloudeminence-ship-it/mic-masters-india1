@@ -1,37 +1,42 @@
 import React from 'react';
-import { Container, Typography, Grid, Card, CardMedia } from '@mui/material';
+import { Container, Typography, Card, CardMedia } from '@mui/material';
 import './Gallery.css';
 
+// Import images from local folder
+import img1 from './images/1.jpg';
+import img2 from './images/2.jpg';
+import img3 from './images/3.jpg';
+import img4 from './images/4.jpg';
+import img5 from './images/5.jpg';
+
 const Gallery = () => {
-  const galleryImages = [
-    'https://source.unsplash.com/random/600x400/?concert,audience',
-    'https://source.unsplash.com/random/600x400/?singer',
-    'https://source.unsplash.com/random/600x400/?music,performance',
-    'https://source.unsplash.com/random/600x400/?microphone',
-    'https://source.unsplash.com/random/600x400/?stage',
-    'https://source.unsplash.com/random/600x400/?crowd',
-  ];
+  const galleryImages = [img1, img2, img3, img4, img5];
 
   return (
     <div className="section">
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom align="center" className="gold-text">
+        <Typography
+          variant="h3"
+          component="h2"
+          gutterBottom
+          align="center"
+          className="white-text"
+        >
           Gallery
         </Typography>
-        <Grid container spacing={3}>
+
+        <div className="gallery-row">
           {galleryImages.map((image, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card>
-                <CardMedia
-                  component="img"
-                  className="gallery-image"
-                  image={image}
-                  alt={`Gallery image ${index + 1}`}
-                />
-              </Card>
-            </Grid>
+            <Card key={index} className="gallery-card">
+              <CardMedia
+                component="img"
+                className="gallery-image"
+                image={image}
+                alt={`Gallery image ${index + 1}`}
+              />
+            </Card>
           ))}
-        </Grid>
+        </div>
       </Container>
     </div>
   );

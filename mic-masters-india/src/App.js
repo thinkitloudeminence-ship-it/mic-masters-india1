@@ -9,15 +9,18 @@ import Gallery from './components/Gallery/Gallery';
 import RegistrationModal from './components/RegistrationModal/RegistrationModal';
 import PaymentModal from './components/PaymentModal/PaymentModal';
 import IdPassModal from './components/IdPassModal/IdPassModal';
+import CustomCursor from './components/CustomCursor/CustomCursor'; // 🎤 mic cursor
 import './App.css';
 
 function App() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  
+
+  // States
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
   const [paymentModalOpen, setPaymentModalOpen] = useState(false);
   const [idPassModalOpen, setIdPassModalOpen] = useState(false);
+
   const [registrationData, setRegistrationData] = useState({
     fullName: '',
     age: '',
@@ -26,14 +29,17 @@ function App() {
     city: '',
     category: '',
   });
+
   const [paymentProof, setPaymentProof] = useState(null);
   const [registrationId, setRegistrationId] = useState(null);
 
+  // Handle input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setRegistrationData({ ...registrationData, [name]: value });
   };
 
+  // Registration submit
   const handleSubmit = (e) => {
     e.preventDefault();
     const newRegistrationId = 'MMI' + Date.now();
@@ -42,6 +48,7 @@ function App() {
     setPaymentModalOpen(true);
   };
 
+  // Upload payment proof
   const handlePaymentProofUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -49,11 +56,13 @@ function App() {
     }
   };
 
+  // Payment submit
   const handlePaymentSubmit = () => {
     setPaymentModalOpen(false);
     setIdPassModalOpen(true);
   };
 
+  // Download ID Pass
   const handleDownloadIdPass = () => {
     alert('ID Pass downloaded successfully!');
     setIdPassModalOpen(false);
@@ -61,6 +70,9 @@ function App() {
 
   return (
     <div className="App">
+      {/* 🎤 Custom cursor */}
+      <CustomCursor />
+
       <Header onRegisterClick={() => setRegisterModalOpen(true)} />
       <Hero 
         onRegisterClick={() => setRegisterModalOpen(true)} 
@@ -69,7 +81,7 @@ function App() {
       <AboutContest />
       <AboutBrand />
       <Gallery />
-      
+
       {/* Footer */}
       <div className="footer">
         <div className="container">
