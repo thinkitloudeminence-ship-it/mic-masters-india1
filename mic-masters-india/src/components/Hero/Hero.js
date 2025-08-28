@@ -14,12 +14,12 @@ const Hero = ({ onRegisterClick, isMobile }) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        height: '100vh',
+        height: '80vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        position: 'relative'
+        position: 'relative',
       }}
     >
       {/* Dark overlay for readability */}
@@ -27,20 +27,25 @@ const Hero = ({ onRegisterClick, isMobile }) => {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          zIndex: 1
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1,
         }}
       />
 
       {/* Content overlay */}
-      <Box sx={{ zIndex: 2, p: 2 }}>
+      <Box 
+        sx={{ 
+          zIndex: 2, 
+          mt: -6,   // 👈 yeh content ko upar kheench lega
+          px: 2     // horizontal padding thodi rakho
+        }}
+      >
         {/* Main Title */}
         <Typography
           variant={isMobile ? "h3" : "h1"}
           component="h1"
           gutterBottom
-          color="black"
-          sx={{ textShadow: 'black', color: 'white' }}
+          sx={{ textShadow: '2px 2px 6px black', color: 'white' }}
         >
           Mic Masters India
         </Typography>
@@ -50,8 +55,7 @@ const Hero = ({ onRegisterClick, isMobile }) => {
           variant={isMobile ? "h6" : "h4"}
           component="h2"
           gutterBottom
-          color="black"
-          sx={{ textShadow: 'black', color: 'white' }}
+          sx={{ textShadow: '2px 2px 6px black', color: 'white' }}
         >
           Showcase Your Talent on the National Stage
         </Typography>
@@ -71,7 +75,7 @@ const Hero = ({ onRegisterClick, isMobile }) => {
           variant="h5"
           component="p"
           align="center"
-          sx={{ mt: 2, color: 'white', textShadow: ' black' }}
+          sx={{ mt: 2, color: 'white', textShadow: '2px 2px 6px black' }}
         >
           Entry Fee: ₹200
         </Typography>
