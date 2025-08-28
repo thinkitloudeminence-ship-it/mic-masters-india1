@@ -1,33 +1,39 @@
-import React, { useState } from 'react';
-import { useTheme, useMediaQuery, Fab } from '@mui/material';
-import PaymentIcon from '@mui/icons-material/Payment';
-import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import AboutContest from './components/AboutContest/AboutContest';
-import AboutBrand from './components/AboutBrand/AboutBrand';
-import Gallery from './components/Gallery/Gallery';
-import RegistrationModal from './components/RegistrationModal/RegistrationModal';
-import PaymentModal from './components/PaymentModal/PaymentModal';
-import IdPassModal from './components/IdPassModal/IdPassModal';
-import CustomCursor from './components/CustomCursor/CustomCursor'; // 🎤 mic cursor
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useTheme, useMediaQuery, Fab } from "@mui/material";
+import PaymentIcon from "@mui/icons-material/Payment";
+
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import AboutContest from "./components/AboutContest/AboutContest";
+import AboutBrand from "./components/AboutBrand/AboutBrand";
+import Gallery from "./components/Gallery/Gallery";
+import RegistrationModal from "./components/RegistrationModal/RegistrationModal";
+import PaymentModal from "./components/PaymentModal/PaymentModal";
+import IdPassModal from "./components/IdPassModal/IdPassModal";
+import RegistrationsList from "./components/RegistrationsList/RegistrationsList";
+import AdminLogin from "./components/AdminLogin/AdminLogin";
+import CustomCursor from "./components/CustomCursor/CustomCursor";
+
+import "./App.css";
 
 function App() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // States
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
   const [paymentModalOpen, setPaymentModalOpen] = useState(false);
   const [idPassModalOpen, setIdPassModalOpen] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
   const [registrationData, setRegistrationData] = useState({
-    fullName: '',
-    age: '',
-    email: '',
-    mobile: '',
-    city: '',
-    category: '',
+    fullName: "",
+    age: "",
+    email: "",
+    mobile: "",
+    city: "",
+    category: "",
   });
 
   const [paymentProof, setPaymentProof] = useState(null);
@@ -42,7 +48,7 @@ function App() {
   // Registration submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newRegistrationId = 'MMI' + Date.now();
+    const newRegistrationId = "MMI" + Date.now();
     setRegistrationId(newRegistrationId);
     setRegisterModalOpen(false);
     setPaymentModalOpen(true);
@@ -64,68 +70,93 @@ function App() {
 
   // Download ID Pass
   const handleDownloadIdPass = () => {
-    alert('ID Pass downloaded successfully!');
+    alert("ID Pass downloaded successfully!");
     setIdPassModalOpen(false);
   };
 
   return (
-    <div className="App">
-      {/* 🎤 Custom cursor */}
-      <CustomCursor />
+    <Router>
+      <Routes>
+        {/* 👉 Normal user website */}
+        <Route
+          path="/"
+          element={
+            <div className="App">
+              {/* 🎤 Custom cursor */}
+              <CustomCursor />
 
-      <Header onRegisterClick={() => setRegisterModalOpen(true)} />
-      <Hero 
-        onRegisterClick={() => setRegisterModalOpen(true)} 
-        isMobile={isMobile} 
-      />
-      <AboutContest />
-      <AboutBrand />
-      <Gallery />
+              <Header onRegisterClick={() => setRegisterModalOpen(true)} />
+              <Hero
+                onRegisterClick={() => setRegisterModalOpen(true)}
+                isMobile={isMobile}
+              />
+              <AboutContest />
+              <AboutBrand />
+              <Gallery />
 
-      {/* Footer */}
-      <div className="footer">
-        <div className="container">
-          <p>© {new Date().getFullYear()} Mic Masters India. All rights reserved.</p>
-        </div>
-      </div>
+              {/* Footer */}
+              <div className="footer">
+                <div className="container">
+                  <p>
+                    © {new Date().getFullYear()} Mic Masters India. All rights
+                    reserved.
+                  </p>
+                </div>
+              </div>
 
-      {/* Floating Register Button for Mobile */}
-      {isMobile && (
-        <Fab 
-          color="primary" 
-          aria-label="register" 
-          className="fixed-register-button"
-          onClick={() => setRegisterModalOpen(true)}
-        >
-          <PaymentIcon className="payment-icon" />
-        </Fab>
-      )}
+              {/* Floating Register Button for Mobile */}
+              {isMobile && (
+                <Fab
+                  color="primary"
+                  aria-label="register"
+                  className="fixed-register-button"
+                  onClick={() => setRegisterModalOpen(true)}
+                >
+                  <PaymentIcon className="payment-icon" />
+                </Fab>
+              )}
 
-      {/* Modals */}
-      <RegistrationModal
-        open={registerModalOpen}
-        onClose={() => setRegisterModalOpen(false)}
-        registrationData={registrationData}
-        handleInputChange={handleInputChange}
-        handleSubmit={handleSubmit}
-      />
-      
-      <PaymentModal
-        open={paymentModalOpen}
-        onClose={() => setPaymentModalOpen(false)}
-        paymentProof={paymentProof}
-        handlePaymentProofUpload={handlePaymentProofUpload}
-        handlePaymentSubmit={handlePaymentSubmit}
-      />
-      
-      <IdPassModal
-        open={idPassModalOpen}
-        onClose={() => setIdPassModalOpen(false)}
-        registrationData={registrationData}
-        registrationId={registrationId}
-        handleDownloadIdPass={handleDownloadIdPass}
-      />
-    </div>
+              {/* Modals */}
+              <RegistrationModal
+                open={registerModalOpen}
+                onClose={() => setRegisterModalOpen(false)}
+                registrationData={registrationData}
+                handleInputChange={handleInputChange}
+                handleSubmit={handleSubmit}
+              />
+
+              <PaymentModal
+                open={paymentModalOpen}
+                onClose={() => setPaymentModalOpen(false)}
+                paymentProof={paymentProof}
+                handlePaymentProofUpload={handlePaymentProofUpload}
+                handlePaymentSubmit={handlePaymentSubmit}
+              />
+
+              <IdPassModal
+                open={idPassModalOpen}
+                onClose={() => setIdPassModalOpen(false)}
+                registrationData={registrationData}
+                registrationId={registrationId}
+                handleDownloadIdPass={handleDownloadIdPass}
+              />
+            </div>
+          }
+        />
+
+        {/* 👉 Admin Panel */}
+        <Route
+          path="/admin"
+          element={
+            isAdminLoggedIn ? (
+              <RegistrationsList />
+            ) : (
+              <AdminLogin onLogin={() => setIsAdminLoggedIn(true)} />
+            )
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
