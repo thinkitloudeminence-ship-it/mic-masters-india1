@@ -29,11 +29,11 @@ function App() {
 
   const [registrationData, setRegistrationData] = useState({
     fullName: "",
-    age: "",
-    email: "",
     mobile: "",
-    city: "",
-    category: "",
+    email: "",
+    education: "",
+    interested: "",
+    inquiry: "",
   });
 
   const [paymentProof, setPaymentProof] = useState(null);
@@ -45,13 +45,37 @@ function App() {
     setRegistrationData({ ...registrationData, [name]: value });
   };
 
-  // Registration submit
-  const handleSubmit = (e) => {
+  // Registration submit (backend + open payment modal)
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newRegistrationId = "MMI" + Date.now();
-    setRegistrationId(newRegistrationId);
-    setRegisterModalOpen(false);
-    setPaymentModalOpen(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/registrations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registrationData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("✅ Registered Successfully!");
+        console.log("Saved:", result);
+
+        // Save generated ID
+        setRegistrationId("MMI" + Date.now());
+
+        // Close register modal and open payment modal
+        setRegisterModalOpen(false);
+        setPaymentModalOpen(true);
+      } else {
+        alert("❌ Error: " + result.message);
+      }
+    } catch (err) {
+      console.error("❌ Network Error:", err);
+      alert("❌ Network error while saving registration");
+    }
   };
 
   // Upload payment proof
