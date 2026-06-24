@@ -7,12 +7,12 @@
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.3"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "jspdf": "^3.0.2",
-    "mongoose": "^8.18.0",
-    "multer": "^2.0.2"
+    "jspdf": "^4.2.1",
+    "mongoose": "^8.22.1",
+    "multer": "^2.2.0"
   }
 }
