@@ -5,10 +5,7 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import './index.css';
-<<<<<<< HEAD
 import './components/CustomCursor/CustomCursor.css';
-=======
->>>>>>> 79ba03530b485e4de951769054c6cd23c386abf5
 import App from './App';
 
 const theme = createTheme({

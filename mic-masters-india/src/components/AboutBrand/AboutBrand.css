@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .section.dark-bg {
   background: #111; /* Dark background */
   padding: 60px 20px;
@@ -21,17 +20,3 @@
     padding: 40px 15px;
   }
 }
-=======
-.section {
-  padding: 64px 16px;
-}
-
-.dark-bg {
-  background-color: #fffffff8;
-  color: rgb(0, 0, 0);
-}
-
-.gold-text {
-  color: #000000 !important;
-}
->>>>>>> 79ba03530b485e4de951769054c6cd23c386abf5
