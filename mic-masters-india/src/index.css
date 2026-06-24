@@ -16,8 +16,11 @@ code {
 
 * {
   box-sizing: border-box;
+<<<<<<< HEAD
 }
 
 body.admin-cursor {
   cursor: auto !important;
+=======
+>>>>>>> 79ba03530b485e4de951769054c6cd23c386abf5
 }
