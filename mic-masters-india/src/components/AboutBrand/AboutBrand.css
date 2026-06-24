@@ -1,0 +1,22 @@
+.section.dark-bg {
+  background: #111; /* Dark background */
+  padding: 60px 20px;
+}
+
+.white-text {
+  color: #fff;
+}
+
+/* Ensure image scales well */
+.section img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile padding fix */
+@media (max-width: 600px) {
+  .section.dark-bg {
+    padding: 40px 15px;
+  }
+}

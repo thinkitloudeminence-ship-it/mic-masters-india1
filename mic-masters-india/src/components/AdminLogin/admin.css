@@ -1,0 +1,47 @@
+/* Reset default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Force cursor visible everywhere */
+html, body {
+  height: 100%;
+  width: 100%;
+  cursor: default !important;   /* ✅ fix cursor invisible issue */
+  font-family: 'Roboto', sans-serif;
+  background-color: #f3f3f3;
+}
+
+/* Input fields */
+.MuiOutlinedInput-root {
+  transition: all 0.3s ease;
+}
+
+.MuiOutlinedInput-root:hover fieldset {
+  border-color: #1976d2 !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 6px rgba(25, 118, 210, 0.3);
+}
+
+/* Buttons */
+.MuiButton-root {
+  transition: all 0.3s ease;
+}
+
+.MuiButton-root:hover {
+  transform: scale(1.02);
+}
+
+/* Paper hover effect */
+.MuiPaper-root {
+  transition: all 0.3s ease;
+}
+
+.MuiPaper-root:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+}

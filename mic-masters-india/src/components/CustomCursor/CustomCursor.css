@@ -1,0 +1,33 @@
+/* Lightweight music-note cursor - pure CSS, native browser cursor.
+   No JS mousemove listener, no React re-renders, zero perf cost.
+   Replaces the old image-following-mouse cursor that caused jank/lag. */
+
+html,
+body {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI4IDI4Ij4KICA8Y2lyY2xlIGN4PSI3IiBjeT0iMjEiIHI9IjQiIGZpbGw9IiNGRkQ3MDAiIHN0cm9rZT0iIzFhMWExYSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPGNpcmNsZSBjeD0iMTkiIGN5PSIxOCIgcj0iNCIgZmlsbD0iI0ZGRDcwMCIgc3Ryb2tlPSIjMWExYTFhIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cGF0aCBkPSJNMTEgMjEgVjYgTDIzIDMgVjE4IiBmaWxsPSJub25lIiBzdHJva2U9IiMxYTFhMWEiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==") 4 24, auto;
+}
+
+/* Clickable elements keep the native pointer hand - clearer affordance
+   than forcing the music-note everywhere */
+a,
+button,
+[role="button"],
+input[type="submit"],
+.MuiButtonBase-root {
+  cursor: pointer;
+}
+
+/* Text inputs keep the native text-cursor for accessibility */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  cursor: text;
+}
+
+/* Admin panel: always plain native cursor, no theming */
+body.admin-cursor,
+body.admin-cursor * {
+  cursor: auto !important;
+}

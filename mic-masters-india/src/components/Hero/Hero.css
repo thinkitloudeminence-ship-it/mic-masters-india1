@@ -1,0 +1,42 @@
+/* Wrapper for draggable slider */
+.slider-wrapper {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  cursor: grab;
+}
+
+/* Contestant card */
+.slide-card {
+  min-width: 220px;
+  max-width: 250px;
+  margin: 0 15px;
+  padding: 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease;
+}
+
+.slide-card:hover {
+  transform: scale(1.05);
+}
+
+/* Media inside card (image/video) */
+.slide-media {
+  width: 220px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+/* Sponsor logos */
+.sponsor-logo img {
+  max-height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 5px black);
+}
+
+
